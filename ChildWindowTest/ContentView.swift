@@ -16,10 +16,10 @@ struct ContentView: View {
     }
     
     func openChild()  {
-        let win = NSWindow();
+        let win = NSPanel();
         win.windowController = ChildWindowController()
         let parent = NSApp.mainWindow
-        parent?.addChildWindow(win, ordered: NSWindow.OrderingMode.above)
+        win.isFloatingPanel = true
         win.makeKeyAndOrderFront(self)
         win.contentView = NSHostingView(rootView: ChildView(win: win))
     }
